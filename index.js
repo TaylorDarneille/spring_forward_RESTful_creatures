@@ -31,8 +31,9 @@ app.get('/dinosaurs/:idx', (req, res)=>{
     let dinosaurs = fs.readFileSync('./dinosaurs.json')
     let dinoData = JSON.parse(dinosaurs)
     // extract the dino corresponding to the idx param
-
-    console.log('idx:'+req.params.idx)
+    let dinoIndex = req.params.idx
+    let targetDino = dinoData[dinoIndex]
+    res.render('show.ejs', {dino: targetDino})
 })
 
 app.listen(8000, ()=>{
