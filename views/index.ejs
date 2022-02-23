@@ -5,7 +5,12 @@
 </form>
 
 <ul>
-    <% myDinos.forEach(dino=>{ %>
-        <li><%= dino.name %> is a <%= dino.type %></li>
+    <% myDinos.forEach((dino, i)=>{ %>
+        <li>
+            <%= dino.name %> is a <%= dino.type %>
+            <form action="/dinosaurs/<%= i %>/?_method=DELETE" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
     <% }) %>
 </ul>
